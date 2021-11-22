@@ -36,6 +36,7 @@ function RegForm(props) {
                 />
                 <p>Show password</p>
               </div>
+              <button type="submit">Create account</button>
             </Form>
           );
         }}
