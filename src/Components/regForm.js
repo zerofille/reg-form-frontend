@@ -2,14 +2,21 @@ import React, { useState } from "react";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+const initialValues = {
+  email: "",
+  password: "",
+  passwordConf: "",
+};
+
 function RegForm(props) {
   const [passwordState, setPasswordState] = useState(false);
   const changePasswordState = () => {
     setPasswordState(!passwordState);
   };
+  const submitHandler = (values, formikBag) => {formikBag.resetForm()};
   return (
     <section>
-      <Formik>
+      <Formik initialValues={initialValues}  onSubmit={submitHandler}>
         {(formikProps) => {
           return (
             <Form>
