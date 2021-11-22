@@ -25,20 +25,23 @@ function RegForm(props) {
       <Formik initialValues={initialValues} onSubmit={submitHandler} validationSchema={SIGN_IN_SCHEME}  validateOnChange={false}>
         {(formikProps) => {
           return (
-            <Form>
+            <Form style={{ display: 'flex', flexDirection: 'column', width: '400px' }}>
               <h1>Make an account</h1>
               <Field type="text" name="email" placeholder="email" />
-              <div>
+              <ErrorMessage name="email"/>
+              <div style={{ display: 'flex', flexDirection: 'column'}}>
                 <Field
                   name="password"
                   placeholder="password"
                   type={passwordState ? "text" : "password"}
                 />
+                <ErrorMessage name="password"/>
                 <Field
                   name="passwordConf"
                   placeholder="confirm password"
                   type={passwordState ? "text" : "password"}
                 />
+                <ErrorMessage name="passwordConf"/>
               </div>
               <div>
                 <Field
