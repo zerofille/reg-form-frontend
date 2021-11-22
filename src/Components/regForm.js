@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { SIGN_IN_SCHEME } from "../utils/validation";
 import * as UserActionCreators from "../../src/actions/userActionCreators";
 const initialValues = {
   email: "",
@@ -16,12 +17,12 @@ function RegForm(props) {
   };
   const submitHandler = (values, formikBag) => {
     const action = UserActionCreators.createUserRequest(values);
-    dispatch(values);
+    dispatch(action);
     formikBag.resetForm();
   };
   return (
     <section>
-      <Formik initialValues={initialValues} onSubmit={submitHandler}>
+      <Formik initialValues={initialValues} onSubmit={submitHandler} validationSchema={SIGN_IN_SCHEME}  validateOnChange={false}>
         {(formikProps) => {
           return (
             <Form>
@@ -48,7 +49,7 @@ function RegForm(props) {
                 />
                 <p>Show password</p>
               </div>
-              <button type="submit">Create account</button>
+              <button type="submit" >Create account</button>
             </Form>
           );
         }}
