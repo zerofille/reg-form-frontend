@@ -6,13 +6,13 @@ export const createUserRequest = (values) =>{
         payload:values
     }
 },
-export const createUserSucces = (values) =>{
+export const createUserSuccess = (values) =>{
     return {
         type:ACTION_TYPES.CREATE_USER_SUCCESS,
         payload:values
     }
 },
-export const createUserRequest = (error) =>{
+export const createUserError = (error) =>{
     return {
         type:ACTION_TYPES.CREATE_USER_ERROR,
         payload:error
