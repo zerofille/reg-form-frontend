@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SIGN_IN_SCHEME } from "../utils/validation";
 import * as UserActionCreators from "../../src/actions/userActionCreators";
+import styles from "./style.module.scss";
 const initialValues = {
   email: "",
   password: "",
@@ -21,38 +22,48 @@ function RegForm(props) {
     formikBag.resetForm();
   };
   return (
-    <section>
-      <Formik initialValues={initialValues} onSubmit={submitHandler} validationSchema={SIGN_IN_SCHEME}  validateOnChange={false}>
+    <section className="test">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={submitHandler}
+        validationSchema={SIGN_IN_SCHEME}
+        validateOnChange={false}
+      >
         {(formikProps) => {
           return (
-            <Form style={{ display: 'flex', flexDirection: 'column', width: '400px' }}>
-              <h1>Make an account</h1>
-              <Field type="text" name="email" placeholder="email" />
-              <ErrorMessage name="email"/>
-              <div style={{ display: 'flex', flexDirection: 'column'}}>
-                <Field
-                  name="password"
-                  placeholder="password"
-                  type={passwordState ? "text" : "password"}
-                />
-                <ErrorMessage name="password"/>
-                <Field
-                  name="passwordConf"
-                  placeholder="confirm password"
-                  type={passwordState ? "text" : "password"}
-                />
-                <ErrorMessage name="passwordConf"/>
-              </div>
-              <div>
-                <Field
-                  type="checkbox"
-                  onChange={changePasswordState}
-                  checked={passwordState}
-                  name="isShownPassword"
-                />
-                <p>Show password</p>
-              </div>
-              <button type="submit" >Create account</button>
+            <Form>
+              <h1>CREATE AN ACCOUNT</h1>
+              <main>
+                <div>
+                  <Field type="text" name="email" placeholder="email" />
+                  <ErrorMessage name="email" />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Field
+                    className="test"
+                    name="password"
+                    placeholder="password"
+                    type={passwordState ? "text" : "password"}
+                  />
+                  <ErrorMessage name="password" />
+                  <Field
+                    name="passwordConf"
+                    placeholder="confirm password"
+                    type={passwordState ? "text" : "password"}
+                  />
+                  <ErrorMessage name="passwordConf" />
+                </div>
+                <div className={styles.checkbox}>
+                  <Field
+                    type="checkbox"
+                    onChange={changePasswordState}
+                    checked={passwordState}
+                    name="isShownPassword"
+                  />
+                  <label>Show password</label>
+                </div>
+                <button type="submit">CREATE</button>
+              </main>
             </Form>
           );
         }}

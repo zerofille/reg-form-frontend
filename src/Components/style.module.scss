@@ -1,0 +1,75 @@
+@import "../utils/include-media_styles/breakpoints.scss";
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@200&display=swap");
+
+$font: "M PLUS 1", sans-serif;
+.checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+
+  label {
+    margin-top: 3px;
+  }
+
+  input {
+    width: 12px;
+    margin: 0 10px;
+  }
+}
+
+section {
+  background: rgb(255, 255, 255);
+  font-family: $font;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    background-color: chocolate;
+    @include media("<=desktop") {
+      width: 800px;
+    }
+
+    main {
+      background-color: rgb(112, 28, 108);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        background-color: rgb(238, 238, 238);
+        border-style: none;
+        border-radius: 5px;
+        padding-left: 20px;
+        font-family: $font;
+        width: 400px;
+      }
+      @include media("<=desktop") {
+        input {
+          // width: 95%;
+          height: 2rem;
+          margin: 10px 0px;
+        }
+      }
+      button {
+        width: 380px;
+        margin: 0 auto;
+        height: 2rem;
+        border-radius: 5px;
+        border-style: none;
+        font-size: 1rem;
+        background-color: coral;
+      }
+    }
+  }
+}
