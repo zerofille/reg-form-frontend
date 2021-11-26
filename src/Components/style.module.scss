@@ -1,75 +1,76 @@
 @import "../utils/include-media_styles/breakpoints.scss";
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@200&display=swap");
 
-$font: "M PLUS 1", sans-serif;
-.checkbox {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-
-  label {
-    margin-top: 3px;
-  }
-
-  input {
-    width: 12px;
-    margin: 0 10px;
+$mn: #e7d3d3;
+$fd: #f0e4e4;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin: 10px 0px;
+}
+.error {
+  position: absolute;
+  bottom: 110%;
+  right: 0;
+  &::after {
+    content: "a";
+    position: absolute;
+    top: 60%;
+    right: 20px;
   }
 }
-
-section {
-  background: rgb(255, 255, 255);
-  font-family: $font;
-  width: 100vw;
-  height: 100vh;
+.field {
+  width: 100%;
+  height: 2.5rem;
+  background-color: $fd;
+  border: none;
+  padding-left: 10px;
+  outline:none;
+}
+.eye{
+    width:20px;
+    position: absolute;
+    left:95%;
+    bottom: 25%;
+}
+.password{
+    position: relative;
+}
+.badField {
+  border: 3px solid rgb(122, 72, 114);
+  width: 100%;
+  height: 2.5rem;
+  background-color: $fd;
+  
+}
+form {
+  width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+main {
+  display: flex;
+  //   flex-direction: column;
+  align-items: center;
   justify-content: center;
-
-  h1 {
-    text-align: center;
-  }
-
-  form {
-    background-color: chocolate;
-    @include media("<=desktop") {
-      width: 800px;
-    }
-
-    main {
-      background-color: rgb(112, 28, 108);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      input {
-        background-color: rgb(238, 238, 238);
-        border-style: none;
-        border-radius: 5px;
-        padding-left: 20px;
-        font-family: $font;
-        width: 400px;
-      }
-      @include media("<=desktop") {
-        input {
-          // width: 95%;
-          height: 2rem;
-          margin: 10px 0px;
-        }
-      }
-      button {
-        width: 380px;
-        margin: 0 auto;
-        height: 2rem;
-        border-radius: 5px;
-        border-style: none;
-        font-size: 1rem;
-        background-color: coral;
-      }
-    }
-  }
+  height: 100%;
+  background-color: $mn;
+  height: 100vh;
+}
+.btnWrapper {
+  display: flex;
+  //   flex-direction: column;
+  align-items: center;
+}
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 }
