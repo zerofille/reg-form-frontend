@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, useField } from "formik";
 import styles from "./style.module.scss";
+import cx from "classnames";
 function CustomField(props) {
-  const {
-    className,
-    name,
-    placeholder,
-    type,
-    onClick,
-    classNameForImg,
-    src,
-    alt,
-  } = props;
+  const [meta] = useField(props);
+  const { name, placeholder, type, onClick, classNameForImg, src, alt } = props;
+  const validStyles = cx(styles.field, {
+    [styles.field]: !meta.error && meta.touched,
+    [styles.badField]: !meta.error && meta.touched,
+  });
+
   return (
     <div className={styles.inputWrapper}>
       <Field
-        className={className}
+        className={validStyles}
         name={name}
         placeholder={placeholder}
         type={type}

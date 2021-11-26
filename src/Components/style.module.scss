@@ -16,18 +16,6 @@ $ft: "Work Sans", sans-serif;
   justify-content: center;
 }
 
-@mixin field() {
-  width: 100%;
-  height: 2.5rem;
-  background-color: $fd;
-  border: none;
-  padding-left: 10px;
-  outline: none;
-  @include media("<=481px") {
-    height: 2rem;
-  }
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,7 +34,7 @@ $ft: "Work Sans", sans-serif;
   font-size: 12px;
   padding: 2px 4px;
   border-radius: 6px;
-  color:$mn;
+  color: $mn;
   &::after {
     width: 2px;
     position: absolute;
@@ -56,25 +44,23 @@ $ft: "Work Sans", sans-serif;
     border: 5px solid transparent;
     border-top: 5px solid $btf;
     @include media("<=481px") {
-      border:2px solid transparent;
+      border: 2px solid transparent;
       border-top: 3px solid $btf;
-      top:100%;
-     }
-   
+      top: 100%;
+    }
   }
   @include media("<=tablet") {
-    font-size:9px;
+    font-size: 9px;
   }
   @include media("<=481px") {
-   font-size:8px;
-   padding: 1.3px 3px;
-   bottom: 107%;
-   white-space: nowrap;
+    font-size: 8px;
+    padding: 1.3px 3px;
+    bottom: 107%;
+    white-space: nowrap;
   }
   @include media("<=phone") {
     font-size: 8px;
   }
-
 }
 .field {
   width: 100%;

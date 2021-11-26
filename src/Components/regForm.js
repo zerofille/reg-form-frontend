@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { SIGN_IN_SCHEME } from "../utils/validation";
 import * as UserActionCreators from "../../src/actions/userActionCreators";
-import cx from "classnames";
 import styles from "./style.module.scss";
 import open from "../img/open.png";
 import close from "../img/closed.png";
@@ -38,35 +37,13 @@ function RegForm(props) {
         validateOnChange={false}
       >
         {(formikProps) => {
-          const validStylesEmail = cx(styles.field, {
-            [styles.field]: !formikProps.errors.email,
-            [styles.badField]:
-              formikProps.errors.email && formikProps.touched.email,
-          });
-          const validStylesPassword = cx(styles.field, styles.password, {
-            [styles.field]: !formikProps.errors.password,
-            [styles.badField]:
-              formikProps.errors.password && formikProps.touched.password,
-          });
-          const validStylesConf = cx(styles.field, {
-            [styles.field]: !formikProps.errors.passwordConf,
-            [styles.badField]:
-              formikProps.errors.passwordConf &&
-              formikProps.touched.passwordConf,
-          });
           return (
             <Form>
               <h1 className={styles.heading}>CREATE AN ACCOUNT</h1>
 
-              <CustomField
-                className={validStylesEmail}
-                name="email"
-                placeholder="Email"
-                type="text"
-              />
+              <CustomField name="email" placeholder="Email" type="text" />
 
               <CustomField
-                className={validStylesPassword}
                 name="password"
                 placeholder="Password"
                 type={passwordState ? "text" : "password"}
@@ -77,7 +54,6 @@ function RegForm(props) {
               />
 
               <CustomField
-                className={validStylesConf}
                 name="passwordConf"
                 placeholder="Confirm password"
                 type={passwordConfState ? "text" : "password"}
