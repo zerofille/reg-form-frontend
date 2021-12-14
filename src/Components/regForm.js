@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import { SIGN_IN_SCHEME } from "../utils/validation";
 import * as UserActionCreators from "../../src/actions/userActionCreators";
@@ -7,6 +7,7 @@ import styles from "./style.module.scss";
 import open from "../img/open.png";
 import close from "../img/closed.png";
 import CustomField from "./field";
+import { createUserRequest } from "../reducers/userSlice";
 const initialValues = {
   email: "",
   password: "",
@@ -24,8 +25,7 @@ function RegForm(props) {
     setPasswordConfState(!passwordConfState);
   };
   const submitHandler = (values, formikBag) => {
-    const action = UserActionCreators.createUserRequest(values);
-    dispatch(action);
+    dispatch(createUserRequest(values));
     formikBag.resetForm();
   };
   return (

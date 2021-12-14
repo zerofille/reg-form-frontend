@@ -1,6 +1,6 @@
 import { put } from "@redux-saga/core/effects";
-import * as HeroActionCreators from "../actions/userActionCreators";
 import * as API from "../api/index";
+import { createUserSuccess, createUserError } from "../reducers/userSlice";
 
 export function* createUserSaga(action) {
   try {
@@ -10,8 +10,9 @@ export function* createUserSaga(action) {
         data: [user],
       },
     } = response;
-    yield put(HeroActionCreators.createUserSuccess(user));
+    
+    yield put(createUserSuccess(user));
   } catch (error) {
-    yield put(HeroActionCreators.createUserError(error));
+    yield put(createUserError(error));
   }
 }
